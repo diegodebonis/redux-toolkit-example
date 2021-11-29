@@ -14,6 +14,15 @@ export const selectAllPosts = createSelector(
   (postsResult) => postsResult?.data ?? []
 );
 
+export const selectPostByTitle = createSelector(
+  selectAllPosts,
+  (state, title) => title,
+  (posts, title) => {
+    console.log("ads");
+    return posts.filter((item) => item.title.includes(title));
+  }
+);
+
 const initialState = {
   posts: [],
 };
