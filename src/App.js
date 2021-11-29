@@ -7,7 +7,7 @@
 //   selectPostByTitle,
 // } from "./features/Posts/postsSlice";
 
-// import { useGetPostsQuery } from "./services/postApi";
+import { useGetPostsQuery, useGetUsersQuery } from "./services/api";
 
 import Posts from "./features/Posts/Posts";
 
@@ -15,7 +15,8 @@ function App() {
   // const dispatch = useDispatch();
 
   // const posts = useSelector(selectAllPosts);
-  // const { data, isLoading, isError, isSuccess, error } = useGetPostsQuery();
+  useGetPostsQuery();
+  useGetUsersQuery();
 
   return (
     <div className="App">

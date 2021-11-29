@@ -5,9 +5,14 @@ import {
   createSelector,
 } from "@reduxjs/toolkit";
 
-import { postsApi } from "../../services/postApi";
+import { api } from "../../services/api";
 
-export const selectPostsResult = postsApi.endpoints.getPosts.select();
+export const selectPostsResult = api.endpoints.getPosts.select();
+
+export const isGetPostsFetching = createSelector(
+  selectPostsResult,
+  (postsResult) => postsResult?.isLoading ?? null
+);
 
 export const selectAllPosts = createSelector(
   selectPostsResult,
